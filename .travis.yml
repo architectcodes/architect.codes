@@ -1,2 +1,4 @@
 language: node_js
-script: ./scripts/deploy
+script:
+    - ./scripts/build
+    - ./scripts/deploy

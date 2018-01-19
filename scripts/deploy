@@ -1,7 +1,6 @@
 #! /bin/bash -ex
 project="$(dirname "$0")"/..
 
-cd "$project"
 "$project"/node_modules/.bin/surge \
   --domain=architect.codes \
-  .
+  "$project"/public

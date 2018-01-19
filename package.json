@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "metalsmith": "^2.3.0",
     "surge": "^0.19.0"
   }
 }
