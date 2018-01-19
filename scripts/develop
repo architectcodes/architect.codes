@@ -1,0 +1,6 @@
+#! /usr/bin/env node
+const {Runner} = require('metalsmith-start');
+const build = require('./build');
+
+const server = new Runner(build);
+server.start();
