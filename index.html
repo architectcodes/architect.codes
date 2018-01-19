@@ -6,8 +6,10 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-111256069-1');
+        if (/\barchitect\.codes\b/.test(location.host)) {
+            gtag('js', new Date());
+            gtag('config', 'UA-111256069-1');
+        }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon-precomposed" href="favicon-180.png">
