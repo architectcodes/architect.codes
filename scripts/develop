@@ -1,6 +1,7 @@
-#! /usr/bin/env node
-const {Runner} = require('metalsmith-start');
-const build = require('./build');
+#! /usr/bin/env bash
+set -e
 
-const server = new Runner(build);
-server.start();
+scripts="$(dirname "$0")"
+"$scripts"/../node_modules/.bin/node-dev \
+    --no-notify \
+    "$scripts"/.internals/develop "$@"
