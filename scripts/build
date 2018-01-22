@@ -1,20 +1,32 @@
 #! /usr/bin/env node
 const metalsmith = require('metalsmith');
 const {execFileSync} = require('child_process');
+// const frontmatter = require('mattersmith-matters');
+const handlebars = require('metalsmith-handlebars');
+const {resolve} = require('path');
 
-const destination = `${__dirname}/../public/`;
+process.chdir(`${__dirname}/..`);
+const source = 'source';
+const destination = 'public';
+
 execFileSync('git', ['checkout', destination]);
 execFileSync('git', ['clean', '-dxf', destination]);
 
-const app = metalsmith(`${__dirname}/..`)
+const handlebarsPlugin = handlebars({
+    pattern: '**/*.hbs',
+    partials: `${source}/partials`,
+    targetExtension: 'html',
+});
+
+const app = metalsmith(process.cwd())
     .clean(false)
-    .source('./source')
-    .destination(destination);
+    .source(source)
+    .destination(destination)
+    .use(handlebarsPlugin);
+// .use(frontmatter({namespace: 'page'}));
 
 if (module.parent) {
     module.exports = app;
 } else {
-    app.build(error => {
-        if (error) throw error;
-    });
+    app.build();
 }
