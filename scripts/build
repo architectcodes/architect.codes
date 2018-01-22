@@ -20,5 +20,9 @@ const app = metalsmith(process.cwd())
 if (module.parent) {
     module.exports = app;
 } else {
-    app.build();
+    app.build(error => {
+        if (error) {
+            throw error;
+        }
+    });
 }
