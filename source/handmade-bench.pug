@@ -6,7 +6,9 @@ doctype html
 html
     head
         title #{title} by architect.codes
-        link(rel="stylesheet", href="/article.css")
+        link(rel="stylesheet" href="/article.css")
+        meta(name="viewport" content="width=device-width")
+        link(href="https://fonts.googleapis.com/css?family=Barlow:100i,300|Montserrat:900" rel="stylesheet")
 
     body
         h1 #{title}
@@ -15,7 +17,12 @@ html
                 href="https://photos.google.com/share/AF1QipPVvhuCKsSyl7zyNmHB3KeBYnBGjq15IyBXlWyb4sWgXKyJsQySSSr_K_KajDlu3Q/photo/AF1QipN8rVxsUbcDZzS4NroTXqEq0J6Az5hol-yCzHu4?key=R3BLYm1TMTYwVGd3SksxWDFybnJJZVlXMDZTSGF3"
                 target="_blank"
             )
-                img(
-                    alt="the handmade bench"
-                    src="handmade-bench/cover.jpg"
-                )
+                .cover-image
+                    img(
+                        alt="the handmade bench"
+                        src="handmade-bench/cover.jpg"
+                    )
+
+            p We were about to lead a workshop on parametric modeling. My wife, a psychologist – and myself, an architect and a coder. We kept asking ourselves one question.
+
+            blockquote can people and computers really work together?

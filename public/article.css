@@ -1,11 +1,20 @@
+:root {
+    --spacing: 8vw;
+    --negative-spacing: calc(-1 * var(--spacing));
+    --line-height: 1.2;
+}
+
 *, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    font-family: montserrat, sans-serif;
+html {
+    font-family: barlow, sans-serif;
+    font-weight: 300;
+    font-size: calc(14px + 0.5vw);
+    line-height: var(--line-height);
 }
 
 h1 {
@@ -13,18 +22,54 @@ h1 {
     position: fixed;
     bottom: var(--offset);
     right: var(--offset);
+    font-family: montserrat, sans-serif;
     font-weight: 900;
     font-size: calc(6vh + 2.5vw);
     text-align: right;
     line-height: 0.9;
+    z-index: 1;
 }
 
 article {
-    padding: calc(24vw - 10vh);
+    padding: calc(30vw - 10vh);
 }
 
-article img {
-    width: calc(100% + 4vw);
+.cover-image,
+img {
+    margin: var(--spacing) var(--negative-spacing);
+}
+
+img {
+    width: calc(100% + 2 * var(--spacing));
     height: auto;
-    margin: -2vw;
+    display: block;
+}
+
+.cover-image {
+    position: relative;
+    margin-top: var(--negative-spacing);
+}
+.cover-image::after {
+    position: absolute;
+    pointer-events: none;
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to right top, rgba(0, 255, 255, 0.7), rgba(255, 0, 255, 0.4));
+}
+.cover-image img {
+    margin: 0;
+    width: 100%;
+}
+
+p, blockquote {
+    margin-bottom: calc(var(--line-height) * 1rem);
+}
+
+blockquote {
+    font-weight: 100;
+    font-size: 2em;
+    font-style: italic;
 }
