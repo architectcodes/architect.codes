@@ -12,6 +12,7 @@ html
 
     body
         h1 #{title}
+        .h1-scrim(aria-hidden) #{title}
         article
             a(
                 href="https://photos.google.com/share/AF1QipPVvhuCKsSyl7zyNmHB3KeBYnBGjq15IyBXlWyb4sWgXKyJsQySSSr_K_KajDlu3Q/photo/AF1QipN8rVxsUbcDZzS4NroTXqEq0J6Az5hol-yCzHu4?key=R3BLYm1TMTYwVGd3SksxWDFybnJJZVlXMDZTSGF3"
@@ -26,3 +27,18 @@ html
             p We were about to lead a workshop on parametric modeling. My wife, a psychologist – and myself, an architect and a coder. We kept asking ourselves one question.
 
             blockquote can people and computers really work together?
+
+        script.
+            (() => {
+                const html = document.documentElement;
+                const h1 = document.querySelector('h1');
+                let lastScrollTop = html.scrollTop;
+                window.addEventListener('scroll', () => {
+                    if (
+                        html.scrollTop <= 0 ||
+                        html.scrollTop < lastScrollTop
+                    ) h1.classList.remove('hidden');
+                    else h1.classList.add('hidden');
+                    lastScrollTop = html.scrollTop;
+                });
+            })();
