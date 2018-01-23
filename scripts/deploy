@@ -1,4 +1,6 @@
 #! /bin/bash -ex
+# deploy the site after a `please build`
+
 project="$(dirname "$0")"/..
 
 "$project"/node_modules/.bin/surge \
