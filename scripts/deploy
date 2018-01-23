@@ -1,6 +1,7 @@
 #! /bin/bash -ex
-project="$(dirname "$0")"/..
+# deploy the site after a `please build`
 
+project="$(dirname "$0")"/..
 "$project"/node_modules/.bin/surge \
   --domain=architect.codes \
   "$project"/public

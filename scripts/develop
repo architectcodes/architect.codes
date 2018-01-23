@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-set -e
+# watch files for changes, serve and live reload the site and the build
 
 scripts="$(dirname "$0")"
 "$scripts"/../node_modules/.bin/node-dev \

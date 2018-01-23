@@ -1,4 +1,6 @@
 #! /usr/bin/env node
+# build a deployment-ready package
+
 const metalsmith = require('metalsmith');
 const {execFileSync} = require('child_process');
 const html = require('metalsmith-in-place');
